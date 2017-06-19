@@ -37,8 +37,15 @@ try:
     with open('README.rst', 'rt') as readme:
         description = '\n' + readme.read()
 except IOError:
-    # maybe running setup.py from some other dir
-    description = ''
+    try:
+        path = os.path.join(
+            os.path.dirname(__file__),
+            'README.rst')
+        with open(path, 'rt') as readme:
+            description = '\n' + readme.read()
+    except IOError:
+        # TLDR?
+        description = ''
 
 
 setup(
