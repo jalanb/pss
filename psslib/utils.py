@@ -68,6 +68,3 @@ def decode_colorama_color(color_str):
         return c_fore + c_back + c_style
     except AttributeError:
         return None
-
-
-
